@@ -3,11 +3,19 @@ import os
 import time
 import pathlib
 import pandas as pd
+from dotenv import load_dotenv
 from prompt_manipulation_tools import prompt_encoder
 
 from openai import AsyncOpenAI
 
-cur_password = "pinky"
+load_dotenv()
+
+cur_password = os.getenv("AGENT_SECRET_PASSWORD")
+
+if not cur_password:
+    raise ValueError(
+        "AGENT_SECRET_PASSWORD environment variable is not set. Please set it in your environment or .env file."
+    )
 
 # load the system prompt from a file
 script_dir = pathlib.Path(__file__).parent.absolute()

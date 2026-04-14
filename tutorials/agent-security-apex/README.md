@@ -22,7 +22,11 @@ Hands-on tutorial covering attack techniques, automated testing, and defense imp
 ## Quick Start
 
 1. **Install packages**: `pip install openai python-dotenv pandas`
-2. **Set up API key**: Create `.env` file with `OPENAI_API_KEY=your_key_here`
+2. **Set up environment variables**: Create `.env` file with:
+   ```
+   OPENAI_API_KEY=your_key_here
+   AGENT_SECRET_PASSWORD=your_secure_password_here
+   ```
 3. **Run the tutorial**: Complete in 30-45 minutes with automated and manual testing
 
 ## Files Included
