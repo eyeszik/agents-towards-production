@@ -1,14 +1,12 @@
 # app.py (full code combining all steps)
 
-import os
-import openai
-import streamlit as st
 import io
-
-from dotenv import load_dotenv
-import openai
 import os
+
+import openai
 import PyPDF2
+import streamlit as st
+from dotenv import load_dotenv
 
 load_dotenv()  # Load environment variables from .env
 
