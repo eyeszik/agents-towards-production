@@ -14,10 +14,10 @@ os.chdir(script_dir)
 # Run uvicorn with the correct module path
 print("Starting FastAPI server...")
 print(f"Current directory: {os.getcwd()}")
-print("Running: uvicorn scripts.fastapi_agent:app --reload")
+print(f"Running: {sys.executable} -m uvicorn scripts.fastapi_agent:app --reload")
 
 try:
-    subprocess.run(["uvicorn", "scripts.fastapi_agent:app", "--reload"], check=True)
+    subprocess.run([sys.executable, "-m", "uvicorn", "scripts.fastapi_agent:app", "--reload"], check=True)
 except Exception as e:
     print(f"Error running server: {e}")
-    sys.exit(1) 
+    sys.exit(1)
