@@ -12,9 +12,10 @@ import PyPDF2
 
 load_dotenv()  # Load environment variables from .env
 
+if not os.getenv("OPENAI_API_KEY"):
+    raise ValueError("OPENAI_API_KEY environment variable is missing. Please set it in your .env file.")
+
 client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-# If you didn't set an environment variable, you could do:
-# client = openai.OpenAI(api_key="sk-your-api-key")  # (Not recommended to hard-code in real apps)
 
 # Function to extract text from a PDF file
 def extract_text_from_pdf(pdf_file):
