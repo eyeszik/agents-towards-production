@@ -19,10 +19,7 @@ client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 # Function to extract text from a PDF file
 def extract_text_from_pdf(pdf_file):
     pdf_reader = PyPDF2.PdfReader(pdf_file)
-    text = ""
-    for page_num in range(len(pdf_reader.pages)):
-        text += pdf_reader.pages[page_num].extract_text()
-    return text
+    return "".join(page.extract_text() for page in pdf_reader.pages)
 
 # Function to process the uploaded file
 def process_uploaded_file(uploaded_file):
