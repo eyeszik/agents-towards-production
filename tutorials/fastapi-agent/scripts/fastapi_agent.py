@@ -1,9 +1,8 @@
-from fastapi import FastAPI, Depends, HTTPException, Header
+from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from typing import Optional
 import json
-import os
 import asyncio
 
 # Define our simple agent class
