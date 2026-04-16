@@ -3,7 +3,6 @@
 import os
 import openai
 import streamlit as st
-import io
 
 from dotenv import load_dotenv
 import openai
