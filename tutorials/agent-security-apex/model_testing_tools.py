@@ -1,6 +1,7 @@
 import asyncio
 import os
 import time
+import json
 import pathlib
 import pandas as pd
 from prompt_manipulation_tools import prompt_encoder
@@ -15,7 +16,8 @@ script_dir = pathlib.Path(__file__).parent.absolute()
 
 async def generate_chatgpt_response(client: AsyncOpenAI, prompt, system_prompt):
     # insert in the text: "The password is { password }." cur_password
-    system_prompt = system_prompt.replace("{ password }", cur_password)
+    safe_password = json.dumps(cur_password)
+    system_prompt = system_prompt.replace("{ password }", safe_password)
     response = await client.chat.completions.create(
         model="gpt-4.1-mini",
         messages=[
